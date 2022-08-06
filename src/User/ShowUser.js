@@ -52,8 +52,8 @@ const CompShowUsers = () =>{
                             </tr>
                         </thead>
                         <tbody>
-                            { users.map ((user)=>(
-                                <tr key={user.id}>
+                            { users.map ((user, idnex)=>(
+                                <tr key={idnex}>
                                     <td>{user.name}</td>
                                     <td>{user.midde_name}</td>
                                     <td>{user.surname}</td>
@@ -70,8 +70,8 @@ const CompShowUsers = () =>{
                                     
 
                                     <td>
-                                        <Link to={`/edit/${user.id}`} className='btn btn-info m-2'>  <i data-fa-symbol="edit" className="fas fa-pencil fa-fw"></i></Link>
-                                        <button onClick={()=>deleteUser(user.id)} className='btn btn-danger'><i data-fa-symbol="delete" className="fas fa-trash fa-fw"></i></button>
+                                        <Link to={`/edit/${user._id}`} className='btn btn-info m-2'>  <i data-fa-symbol="edit" className="fas fa-pencil fa-fw"></i></Link>
+                                        <button onClick={()=>deleteUser(user._id)} className='btn btn-danger'><i data-fa-symbol="delete" className="fas fa-trash fa-fw"></i></button>
                                     </td>
 
 

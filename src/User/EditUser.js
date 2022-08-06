@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import {useNavigate, useParams} from 'react-router-dom'
 import Select  from 'react-select'
-import {FormHelperText, OutlinedInput, } from "@mui/material"
+import {FormHelperText, InputAdornment, OutlinedInput, } from "@mui/material"
 import { AuthLayout } from '../layout/AuthLayout'
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
@@ -85,20 +85,21 @@ const CompEditUser = () =>{
         },[])
 
         const getUserById = async()=>{
-            const res = await axios.get(URI+id)
-                     setName(res.data[0].name)
-                     setMidde_name(res.data[0].midde_name)
-                     setSurname(res.data[0].surname)
-                     setSecond_surname(res.data[0].second_surname)
-                     setBorn(res.data[0].born)
-                     setAddress(res.data[0].address)
-                     setCity(res.data[0].city)
-                     setCountry(res.data[0].country)
-                     setEmail(res.data[0].email)
-                     setActive(res.data[0].active)
-                     setGenders(res.data[0].gender)
-                     setContact(res.data[0].contact)
-                     setOcupacy(res.data[0].ocupacy)
+          const res = await axios.get(`${URI}${id}`)
+          console.log(res)
+                     setName(res.data.name)
+                     setMidde_name(res.data.midde_name)
+                     setSurname(res.data.surname)
+                     setSecond_surname(res.data.second_surname)
+                     setBorn(res.data.born)
+                     setAddress(res.data.address)
+                     setCity(res.data.city)
+                     setCountry(res.data.country)
+                     setEmail(res.data.email)
+                     setActive(res.data.active)
+                     setGenders(res.data.gender)
+                     setContact(res.data.contact)
+                     setOcupacy(res.data.ocupacy)
         }
 
         
@@ -137,8 +138,8 @@ const CompEditUser = () =>{
             </FormControl>
                 </form>
            <FormControl sx={{ m: 1, width: '30ch' }} variant="outlined">
-                 <InputLabel >Born</InputLabel>
-                <OutlinedInput  type="date" label="Born" placeholder="Born"   value={born} onChange={(e)=> setBorn(e.target.value)} required/>
+           <InputLabel >Born</InputLabel>
+                <OutlinedInput  type="date" label="Born"  placeholder="Second Surname"  value={born} onChange={(e)=> setBorn(e.target.value)}  startAdornment={<InputAdornment position="start"></InputAdornment>}required/>
            </FormControl>
            <FormControl variant="standard" sx={{ m: 1, minWidth: 260 }}>
                 <div className='col-mb-6'>

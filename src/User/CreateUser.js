@@ -42,7 +42,7 @@ const CompCreateUser = ()=>{
     //Procedimiento guardar
     const store = async (e)=>{
         e.preventDefault()
-        await axios.post(URI, {name: name ,midde_name:midde_name ,surname:surname ,second_surname:second_surname ,born:born ,address:address ,city:city ,country:country ,email:email ,gender:gender ,contact:contact ,ocupacy:ocupacy} )
+        await axios.post(URI, {name: name ,midde_name:midde_name ,surname:surname ,second_surname:second_surname ,born:born ,address:address ,city:city ,country:country ,active:'Yes',email:email ,gender:gender ,contact:contact ,ocupacy:ocupacy} )
         window.alert(`The user " ${name} " was created successfully` );
         navigate('/')
     }
@@ -85,7 +85,8 @@ return(
                 </form>
            <FormControl sx={{ m: 1, width: '30ch' }} variant="outlined">
                  <InputLabel >Born</InputLabel>
-                <OutlinedInput  type="date" label="Born"  placeholder="Second Surname"  value={born} onChange={(e)=> setBorn(e.target.value)}  startAdornment={<InputAdornment position="start"></InputAdornment>}required/>           </FormControl>
+                <OutlinedInput  type="date" label="Born"  placeholder="Second Surname"  value={born} onChange={(e)=> setBorn(e.target.value)}  startAdornment={<InputAdornment position="start"></InputAdornment>}required/>
+                </FormControl>
            <FormControl variant="standard" sx={{ m: 1, minWidth: 260 }}>
                 <div className='col-mb-6'>
                   <Select  className="games-dropdown-2"  labelId="demo-simple-select-helper-label "  options={option}  onChange={setGenders}/>  
@@ -134,7 +135,7 @@ return(
          
          
         <div className='col-md-6'>
-                <button className="btn btn-primary btn-lg m-2" type="submit">Update <i className="fa-regular fa-floppy-disk"></i></button>
+                <button className="btn btn-primary btn-lg m-2" type="submit">Create <i className="fa-regular fa-floppy-disk"></i></button>
                 <button className="btn btn-danger btn-lg  " onClick={Exit} >Exit</button>
 
         </div>
